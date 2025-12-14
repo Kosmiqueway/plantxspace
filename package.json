@@ -4,9 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "build": "astro build --config astro.config.pages.mjs",
+    "preview": "astro preview --config astro.config.pages.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
