@@ -1,5 +1,5 @@
 {
-  "name": "site",
+  "name": "orbitalbiosystems",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -8,9 +8,6 @@
     "preview": "astro preview --config astro.config.pages.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.5",
     "sharp": "^0.34.3"
   }
