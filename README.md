@@ -1,14 +1,5 @@
-# PlantXSpace
+## Licensing
 
-Growing life beyond Earth.  
-Research notes, projects, and resources on plant growth in space and controlled environments.
-
-## Website
-The site is built with Astro and deployed via GitHub Pages.
-
-## Local development
-Requirements: Node.js (LTS)
-
-```bash
-npm install
-npm run dev
+- Source code is licensed under the MIT License.
+- Original content and research materials are licensed under
+  Creative Commons Attribution 4.0 (CC BY 4.0), unless stated otherwise.
