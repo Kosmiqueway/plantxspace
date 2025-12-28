@@ -1,15 +1,85 @@
 ---
-const { title = "PlantXSpace" } = Astro.props;
----
+import "../styles/global.css";
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  SITE_TAGLINE,
+  CORE_QUESTION,
+  REPO_URL,
+} from "../consts";
 
+interface Props {
+  title?: string;
+  description?: string;
+  editPath?: string;
+}
+
+const base = import.meta.env.BASE_URL;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, editPath } = Astro.props as Props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+const editUrl = editPath ? `${REPO_URL}/edit/main/${editPath}` : undefined;
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical.toString()} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical.toString()} />}
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
   </head>
   <body>
-    <slot />
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-branding">
+        <a href={base} class="site-title">{SITE_TITLE}</a>
+        <p class="tagline">{SITE_TAGLINE}</p>
+      </div>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href={base}>Home</a></li>
+          <li><a href={`${base}canon/`}>Canon</a></li>
+          <li><a href={`${base}sandbox/`}>Sandbox</a></li>
+          <li><a href={`${base}assumptions/`}>Assumptions</a></li>
+          <li><a href={`${base}cite/`}>Cite</a></li>
+          <li><a href={`${base}about/`}>About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content" class="page-shell">
+      <div class="page-top">
+        <p class="core-question-label">Core research question</p>
+        <p class="core-question">{CORE_QUESTION}</p>
+      </div>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <p class="footer-title">{SITE_TITLE}</p>
+        <p class="footer-text">{SITE_TAGLINE}</p>
+      </div>
+      <div class="footer-meta">
+        <p>Public, open, and citable. Evidence over opinion.</p>
+        <p>
+          <a href={`${base}assumptions/`}>Assumptions</a> ·
+          <a href={`${base}cite/`}>How to cite</a> ·
+          <a href={REPO_URL}>Repository</a>
+        </p>
+        {editUrl && (
+          <p class="edit-link">
+            <a href={editUrl}>Edit this page on GitHub</a>
+          </p>
+        )}
+      </div>
+    </footer>
   </body>
 </html>

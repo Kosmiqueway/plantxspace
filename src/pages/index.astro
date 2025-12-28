@@ -1,10 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { CORE_QUESTION, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+
+const base = import.meta.env.BASE_URL;
+const [canonItems, sandboxItems] = await Promise.all([
+  getCollection("library"),
+  getCollection("sandbox"),
+]);
 ---
 
-<Layout title="OrbitalBiosystems">
-  <main>
+<Layout title="OrbitalBiosystems" description={SITE_DESCRIPTION} editPath="src/pages/index.astro">
+  <section class="section">
     <h1>OrbitalBiosystems</h1>
-    <p>Growing life beyond Earth.</p>
-  </main>
+    <p class="lead">Evidence-first systems for plants beyond Earth.</p>
+    <p>{SITE_DESCRIPTION}</p>
+    <p class="question">Core question: {CORE_QUESTION}</p>
+  </section>
+
+  <section class="section">
+    <h2>Canon: recent highlights</h2>
+    <div class="cards">
+      {canonItems.map((item) => (
+        <article class="card">
+          <h3>{item.data.title}</h3>
+          <p>{item.data.summary}</p>
+          <div class="meta-row">
+            <span class="badge canon">Level {item.data.level_of_evidence}</span>
+            <span>{item.data.year}</span>
+            <span>{item.data.tags.join(", ")}</span>
+          </div>
+          <p><a href={item.data.source}>Source</a></p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Sandbox: community ideas (non-canon)</h2>
+    <div class="cards">
+      {sandboxItems.map((item) => (
+        <article class="card">
+          <h3>{item.data.title}</h3>
+          <p>{item.data.summary}</p>
+          <div class="meta-row">
+            <span class="badge sandbox">Level {item.data.level_of_evidence}</span>
+            <span>{item.data.year}</span>
+            <span>{item.data.tags.join(", ")}</span>
+          </div>
+          <p><a href={item.data.source}>Source</a></p>
+        </article>
+      ))}
+    </div>
+    <p class="note">Sandbox entries are not peer-reviewed; use with caution.</p>
+  </section>
+
+  <section class="section">
+    <h2>Traceability and citation</h2>
+    <ul class="default-list">
+      <li><a href={`${base}cite/`}>How to cite this project</a></li>
+      <li><a href={`${base}assumptions/`}>Assumptions registry</a></li>
+      <li><a href={"https://github.com/kosmiqueway/orbitalbiosystems"}>Contribute on GitHub</a></li>
+    </ul>
+  </section>
 </Layout>

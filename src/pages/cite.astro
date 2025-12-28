@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<Layout title="How to cite" description="Citation guidance for OrbitalBiosystems" editPath="src/pages/cite.astro">
+  <section class="section">
+    <h1>How to cite {SITE_TITLE}</h1>
+    <p>Use the following citation for the repository and snapshots. Adapt the date to when you accessed the material.</p>
+    <pre>
+{`KosmiqueWay (maintainers). ${SITE_TITLE}. GitHub repository. https://github.com/kosmiqueway/orbitalbiosystems. Accessed YYYY-MM-DD.`}
+    </pre>
+    <p>
+      For archival DOIs (Zenodo/OSF) we will publish records per tagged release. Until then, cite the repository URL and commit hash.
+    </p>
+  </section>
+</Layout>
