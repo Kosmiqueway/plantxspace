@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { CORE_QUESTION, SITE_TITLE } from "../consts";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={`About · ${SITE_TITLE}`} description="Purpose, two-lane system, and evidence discipline" editPath="src/pages/about.astro">
+  <section class="section">
+    <h1>About OrbitalBiosystems</h1>
+    <p>OrbitalBiosystems is a public, citable open research hub. We prioritize clarity, structure, evidence, and sustainability.</p>
+    <p class="question">Core research question: {CORE_QUESTION}</p>
+  </section>
+
+  <section class="section">
+    <h2>Two-lane system</h2>
+    <ul class="default-list">
+      <li><strong>Canon:</strong> curated, evidence-tagged entries with required metadata and rationale.</li>
+      <li><strong>Sandbox:</strong> community ideas and experiments. Explicitly non-peer-reviewed; tracked with level_of_evidence = L0.</li>
+    </ul>
+    <p>Both lanes timestamp entries and keep source links for traceability.</p>
+  </section>
+
+  <section class="section">
+    <h2>Evidence levels (L0–L3)</h2>
+    <ul class="default-list">
+      <li><strong>L0:</strong> unvalidated hypothesis or idea (sandbox only).</li>
+      <li><strong>L1:</strong> limited evidence (reports, early data, minimal replication).</li>
+      <li><strong>L2:</strong> moderate evidence (peer-reviewed or operational use with partial replication).</li>
+      <li><strong>L3:</strong> strong evidence (robust peer review and independent replication).</li>
+    </ul>
+    <p>Every entry includes an evidence rationale and source URL.</p>
+  </section>
+
+  <section class="section">
+    <h2>Credibility guardrails</h2>
+    <ul class="default-list">
+      <li>No invented affiliations or authority claims.</li>
+      <li>Out-of-scope: proprietary data, medical/clinical guidance, unverifiable performance claims.</li>
+      <li>Accessibility: single H1 per page, descriptive links, alt text reminders for images.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Contribute</h2>
+    <p>See <a href={`${base}cite/`}>How to cite</a> and the <a href="https://github.com/kosmiqueway/orbitalbiosystems">repository</a> for CONTRIBUTING, governance, and style guidance.</p>
+    <p>Use PRs for proposals; expect reviews within 5 business days.</p>
+  </section>
+</Layout>

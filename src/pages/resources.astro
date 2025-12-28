@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE, REPO_URL } from "../consts";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={`Resources · ${SITE_TITLE}`} description="Structure, docs, and navigation" editPath="src/pages/resources.astro">
+  <section class="section">
+    <h1>Resources</h1>
+    <p>Use these references to navigate and extend OrbitalBiosystems without losing credibility.</p>
+  </section>
+
+  <section class="section">
+    <h2>Content collections</h2>
+    <ul class="default-list">
+      <li><strong>library:</strong> key references with authors and evidence rationales.</li>
+      <li><strong>topics:</strong> scoped syntheses with gaps highlighted.</li>
+      <li><strong>protocols:</strong> lab-grade + at-home variants with safety scope.</li>
+      <li><strong>models:</strong> planning models with inputs/outputs and bounds.</li>
+      <li><strong>glossary:</strong> precise definitions tied to sources.</li>
+      <li><strong>sandbox:</strong> non-canon ideas (L0).</li>
+      <li><strong>assumptions:</strong> explicit statements with status.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Docs</h2>
+    <ul class="default-list">
+      <li><a href={`${REPO_URL}/blob/main/docs/GOVERNANCE.md`}>Governance</a></li>
+      <li><a href={`${REPO_URL}/blob/main/docs/ROADMAP.md`}>Roadmap</a></li>
+      <li><a href={`${REPO_URL}/blob/main/docs/STYLE_GUIDE.md`}>Style guide</a></li>
+      <li><a href={`${REPO_URL}/blob/main/docs/MONETIZATION.md`}>Monetization (design only)</a></li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Quality gates</h2>
+    <ul class="default-list">
+      <li>Build checks run on PRs.</li>
+      <li>Link checker runs weekly; broken links raise issues.</li>
+      <li>Content without required metadata or evidence rationale is rejected.</li>
+    </ul>
+  </section>
+</Layout>

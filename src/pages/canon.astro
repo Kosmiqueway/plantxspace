@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const base = import.meta.env.BASE_URL;
+const collections = ["library", "topics", "protocols", "models", "glossary"] as const;
+const entries = (
+  await Promise.all(collections.map((name) => getCollection(name)))
+).flat();
+---
+
+<Layout title="Canon" description="Structured, evidence-tagged content" editPath="src/pages/canon.astro">
+  <section class="section">
+    <h1>Canon</h1>
+    <p>Curated, evidence-tagged content. Each entry is traceable and versioned.</p>
+  </section>
+
+  <section class="section">
+    <h2>Entries</h2>
+    <div class="cards">
+      {entries.map((item) => (
+        <article class="card">
+          <h3>{item.data.title}</h3>
+          <p>{item.data.summary}</p>
+          <div class="meta-row">
+            <span class="badge canon">Level {item.data.level_of_evidence}</span>
+            <span>{item.data.year}</span>
+            <span>{item.data.tags.join(", ")}</span>
+          </div>
+          <p>
+            <a href={item.data.source}>Source</a> · <a href={`${base}cite/`}>How to cite</a>
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

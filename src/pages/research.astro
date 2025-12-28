@@ -1,15 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { CORE_QUESTION, SITE_TITLE } from "../consts";
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Research · PlantXSpace">
-  <main>
-    <h1>Research</h1>
-    <p>Notes and project logs on plants in space and controlled environments.</p>
+<Layout title={`Research · ${SITE_TITLE}`} description="Canon, sandbox, and assumptions overview" editPath="src/pages/research.astro">
+  <section class="section">
+    <h1>Research lanes</h1>
+    <p>All work aligns to the core question: {CORE_QUESTION}</p>
+  </section>
 
-    <p>
-      <a href={`${base}notes/`}>Browse research notes →</a>
-    </p>
-  </main>
+  <section class="section">
+    <h2>Canon</h2>
+    <p>Curated entries with required metadata and evidence rationale.</p>
+    <p><a href={`${base}canon/`}>Browse canon →</a></p>
+  </section>
+
+  <section class="section">
+    <h2>Sandbox</h2>
+    <p>Community ideas and early experiments. Non-peer-reviewed; tracked as L0.</p>
+    <p><a href={`${base}sandbox/`}>Browse sandbox →</a></p>
+  </section>
+
+  <section class="section">
+    <h2>Assumptions</h2>
+    <p>Explicit statements with status (supported, contested, context-dependent).</p>
+    <p><a href={`${base}assumptions/`}>View assumptions registry →</a></p>
+  </section>
 </Layout>

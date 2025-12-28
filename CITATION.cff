@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "OrbitalBiosystems"
+message: "If you use this project, please cite it."
+authors:
+  - name: "OrbitalBiosystems maintainers"
+url: "https://github.com/kosmiqueway/orbitalbiosystems"
+repository-code: "https://github.com/kosmiqueway/orbitalbiosystems"
+license: "MIT"
+keywords: ["astro", "space-biology", "plant-systems", "open-research"]
+version: "0.1.0"
+doi: "" 

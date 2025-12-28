@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={`Security · ${SITE_TITLE}`} description="Responsible disclosure guidance" editPath="src/pages/security.astro">
+  <section class="section">
+    <h1>Security policy</h1>
+    <p>Report vulnerabilities privately. Do not post undisclosed issues publicly.</p>
+  </section>
+
+  <section class="section">
+    <h2>How to report</h2>
+    <ul class="default-list">
+      <li>Use GitHub private security advisories or email the maintainers listed in SECURITY.md.</li>
+      <li>Provide minimal reproduction steps and impact assessment if possible.</li>
+      <li>Use minimal payloads; avoid damaging environments.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Scope</h2>
+    <ul class="default-list">
+      <li>Code and configuration in this repository.</li>
+      <li>Deployment configuration for the site.</li>
+    </ul>
+    <p>Third-party services and external links are out of scope.</p>
+  </section>
+
+  <section class="section">
+    <h2>Expected timelines</h2>
+    <p>Acknowledgement target: within 5 business days.</p>
+    <p>We will coordinate fixes publicly after assessing impact.</p>
+  </section>
+
+  <section class="section">
+    <p>See the source policy at <a href={`${base}SECURITY.md`}>SECURITY.md</a>.</p>
+  </section>
+</Layout>
