@@ -39,7 +39,9 @@ const editUrl = editPath ? `${REPO_URL}/edit/main/${editPath}` : undefined;
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="site-branding">
-        <a href={base} class="site-title">{SITE_TITLE}</a>
+        <a href={base} class="site-title">
+          <img src={`${base}logo-wordmark.svg`} alt="OrbitalBiosystems wordmark" />
+        </a>
         <p class="tagline">{SITE_TAGLINE}</p>
       </div>
       <nav aria-label="Primary">
