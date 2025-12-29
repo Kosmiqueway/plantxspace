@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="OrbitalBiosystems logo mark">
+  <title>OrbitalBiosystems</title>
+  <style>
+    :root { --ob-accent: currentColor; }
+    .stroke { stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .node { fill: currentColor; }
+    .accent { fill: var(--ob-accent); }
+  </style>
+  <circle class="stroke" cx="256" cy="256" r="208" stroke-width="28"/>
+  <g class="stroke" stroke-width="18">
+    <path d="M256 136 L359.9 196 L359.9 316 L256 376 L152.1 316 L152.1 196 Z"/>
+    <path d="M256 136 L256 256"/>
+    <path d="M359.9 196 L256 256"/>
+    <path d="M359.9 316 L256 256"/>
+    <path d="M256 376 L256 256"/>
+    <path d="M152.1 316 L256 256"/>
+    <path d="M152.1 196 L256 256"/>
+  </g>
+  <circle class="node" cx="256" cy="136" r="22"/>
+  <circle class="node" cx="359.9" cy="196" r="22"/>
+  <circle class="node" cx="359.9" cy="316" r="22"/>
+  <circle class="node" cx="256" cy="376" r="22"/>
+  <circle class="node" cx="152.1" cy="316" r="22"/>
+  <circle class="node" cx="152.1" cy="196" r="22"/>
+  <circle class="accent" cx="256" cy="256" r="24"/>
+</svg>
